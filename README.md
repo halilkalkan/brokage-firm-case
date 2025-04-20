@@ -32,16 +32,10 @@ mvn clean install
 
 ## Running the Application
 
-You can run the application in several ways:
+You can run the application using Maven:
 
-1. Using Maven:
 ```bash
 ./mvnw spring-boot:run
-```
-
-2. Running the JAR file:
-```bash
-java -jar target/brokage-0.0.1-SNAPSHOT.jar
 ```
 
 The application will start on port 8080 by default.
@@ -61,6 +55,23 @@ docker run -p 8080:8080 hkalkan/brokage-firm-case
 ```
 
 The application will be accessible at `http://localhost:8080`.
+
+## Usage
+
+### Default Credentials
+
+The default credentials for the admin user are:
+- Username: `admin`
+- Password: `password`
+
+### Customer Signup & Login
+
+New customers can sign up through the `/auth/signup` endpoint. After signing up, a bearer token can be generated through the `/auth/login` endpoint and can be used for authentication in subsequent requests.
+
+### Postman Collection
+Sample Postman collection for testing purposes can be found: 
+
+[BrokageDemo.postman_collection.json](BrokageDemo.postman_collection.json)
 
 ## Testing
 
