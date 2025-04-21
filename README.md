@@ -64,6 +64,8 @@ The default credentials for the admin user are:
 - Username: `admin`
 - Password: `password`
 
+These values must be moved to environment variables for secure storage, especially for production deployment.
+
 ### Customer Signup & Login
 
 New customers can sign up through the `/auth/signup` endpoint. After signing up, a bearer token can be generated through the `/auth/login` endpoint and can be used for authentication in subsequent requests.
