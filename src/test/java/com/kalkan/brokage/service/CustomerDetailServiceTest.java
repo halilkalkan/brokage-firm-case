@@ -50,10 +50,9 @@ public class CustomerDetailServiceTest {
         when(customerRepository.findByUsername("nonexistent")).thenReturn(null);
 
         UsernameNotFoundException exception = assertThrows(
-            UsernameNotFoundException.class,
-            () -> customerDetailsService.loadUserByUsername("nonexistent")
-        );
-        
+                UsernameNotFoundException.class,
+                () -> customerDetailsService.loadUserByUsername("nonexistent"));
+
         assertEquals("User not found: nonexistent", exception.getMessage());
         verify(customerRepository, times(1)).findByUsername("nonexistent");
     }

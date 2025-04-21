@@ -44,7 +44,7 @@ class AssetControllerTest {
         asset.setUsableSize(100.0);
         asset.setCustomerId(customerId);
         expectedAssets.add(asset);
-        
+
         when(assetService.listAssets(customerId)).thenReturn(expectedAssets);
 
         ResponseEntity<?> response = assetController.listAssets(customerId);
@@ -97,7 +97,7 @@ class AssetControllerTest {
         String username = "testuser";
         Customer customer = new Customer();
         customer.setId(actualCustomerId);
-        
+
         when(customerService.getCustomerByUsername(username)).thenReturn(customer);
 
         ResponseEntity<?> response = assetController.listAssets(requestedCustomerId);
@@ -106,4 +106,4 @@ class AssetControllerTest {
         assertEquals("You can only list assets for your own account", response.getBody());
         verify(assetService, never()).listAssets(any());
     }
-} 
+}
