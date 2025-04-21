@@ -60,7 +60,7 @@ The application will be accessible at `http://localhost:8080`.
 
 ### Default Credentials
 
-The default credentials for the admin user are:
+The default credentials for the admin user using basic authentication are:
 - Username: `admin`
 - Password: `password`
 
