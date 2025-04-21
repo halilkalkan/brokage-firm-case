@@ -9,13 +9,13 @@ import java.util.List;
 
 @Repository
 public interface OrderRepository extends JpaRepository<Order, Long> {
-    List<Order> findByCustomerIdAndCreateDateBetween(Long customerId, LocalDateTime from, LocalDateTime to);
+        List<Order> findByCustomerIdAndCreateDateBetween(Long customerId, LocalDateTime from, LocalDateTime to);
 
-    List<Order> findByCustomerId(Long customerId);
+        List<Order> findByCustomerId(Long customerId);
 
-    List<Order> findByAssetNameAndOrderSideAndStatusOrderByPriceAscCreateDateAsc(String assetName, Order.Side side,
-            Order.Status status);
+        List<Order> findByAssetNameAndOrderSideAndStatusOrderByPriceAscCreateDateAsc(String assetName, Order.Side side,
+                        Order.Status status);
 
-    List<Order> findByAssetNameAndOrderSideAndStatusOrderByPriceDescCreateDateAsc(String assetName, Order.Side side,
-            Order.Status status);
+        List<Order> findByAssetNameAndOrderSideAndStatusOrderByPriceDescCreateDateAsc(String assetName, Order.Side side,
+                        Order.Status status);
 }

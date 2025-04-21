@@ -38,15 +38,15 @@ class OrderControllerTest {
     void createOrder_AdminUser_ReturnsOrder() {
         Long customerId = 1L;
         Order order = Order.builder()
-            .customerId(customerId)
-            .assetName("AAPL")
-            .orderSide(Order.Side.BUY)
-            .size(100.0)
-            .price(150.0)
-            .status(Order.Status.PENDING)
-            .createDate(LocalDateTime.now())
-            .build();
-        
+                .customerId(customerId)
+                .assetName("AAPL")
+                .orderSide(Order.Side.BUY)
+                .size(100.0)
+                .price(150.0)
+                .status(Order.Status.PENDING)
+                .createDate(LocalDateTime.now())
+                .build();
+
         when(orderService.createOrder(any(Order.class))).thenReturn(order);
 
         ResponseEntity<?> response = orderController.createOrder(order);
@@ -63,16 +63,16 @@ class OrderControllerTest {
         String username = "testuser";
         Customer customer = new Customer();
         customer.setId(customerId);
-        
+
         Order order = Order.builder()
-            .customerId(customerId)
-            .assetName("AAPL")
-            .orderSide(Order.Side.BUY)
-            .size(100.0)
-            .price(150.0)
-            .status(Order.Status.PENDING)
-            .createDate(LocalDateTime.now())
-            .build();
+                .customerId(customerId)
+                .assetName("AAPL")
+                .orderSide(Order.Side.BUY)
+                .size(100.0)
+                .price(150.0)
+                .status(Order.Status.PENDING)
+                .createDate(LocalDateTime.now())
+                .build();
 
         when(customerService.getCustomerByUsername(username)).thenReturn(customer);
         when(orderService.createOrder(any(Order.class))).thenReturn(order);
@@ -92,16 +92,16 @@ class OrderControllerTest {
         String username = "testuser";
         Customer customer = new Customer();
         customer.setId(actualCustomerId);
-        
+
         Order order = Order.builder()
-            .customerId(requestedCustomerId)
-            .assetName("AAPL")
-            .orderSide(Order.Side.BUY)
-            .size(100.0)
-            .price(150.0)
-            .status(Order.Status.PENDING)
-            .createDate(LocalDateTime.now())
-            .build();
+                .customerId(requestedCustomerId)
+                .assetName("AAPL")
+                .orderSide(Order.Side.BUY)
+                .size(100.0)
+                .price(150.0)
+                .status(Order.Status.PENDING)
+                .createDate(LocalDateTime.now())
+                .build();
 
         when(customerService.getCustomerByUsername(username)).thenReturn(customer);
 
@@ -119,9 +119,8 @@ class OrderControllerTest {
         LocalDateTime from = LocalDateTime.now().minusDays(1);
         LocalDateTime to = LocalDateTime.now();
         List<Order> expectedOrders = Arrays.asList(
-            Order.builder().customerId(customerId).build(),
-            Order.builder().customerId(customerId).build()
-        );
+                Order.builder().customerId(customerId).build(),
+                Order.builder().customerId(customerId).build());
 
         when(orderService.listOrders(customerId, from, to)).thenReturn(expectedOrders);
 
@@ -141,11 +140,10 @@ class OrderControllerTest {
         LocalDateTime to = LocalDateTime.now();
         Customer customer = new Customer();
         customer.setId(customerId);
-        
+
         List<Order> expectedOrders = Arrays.asList(
-            Order.builder().customerId(customerId).build(),
-            Order.builder().customerId(customerId).build()
-        );
+                Order.builder().customerId(customerId).build(),
+                Order.builder().customerId(customerId).build());
 
         when(customerService.getCustomerByUsername(username)).thenReturn(customer);
         when(orderService.listOrders(customerId, from, to)).thenReturn(expectedOrders);
